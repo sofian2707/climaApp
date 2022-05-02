@@ -56,16 +56,30 @@
   <ng-template [ngIf]="active">
     <ion-card>
       <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
+         <!--  {{ item.coord}}-->
+        <ion-card-subtitle>Latitud: {{ clima.coord.lat }}  - Longitud: {{ clima.coord.lon }} </ion-card-subtitle>
+        <ion-card-title>{{ clima.name }} ({{ clima.sys.country }}) </ion-card-title>
+        <ion-img style="width:15%" [src]="'http://openweathermap.org/img/wn/'+ clima.weather[0].icon +'.png'"></ion-img> 
+        <ion-label style="text-align:center;">{{ clima.weather[0].main }} - {{ clima.weather[0].description }}</ion-label>
       </ion-card-header>
     
       <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        <p >Temperatura : {{clima.main.temp}}°C</p>
+        <p>Velocidad viento (nudos): {{clima.wind.speed}}</p>
+        <p style="color:grey">Humedad(%) : {{clima.main.humidity}}</p>
+        <p>Nubosidad: {{clima.clouds.all}} </p>
       </ion-card-content>
     </ion-card>
     
+</ng-template>
+
+<ng-template [ngIf]="activeerror">
+  <ion-card>
+    <ion-card-content>
+      Intente con diferente latitud - longitud
+    </ion-card-content>
+  </ion-card>
+  
 </ng-template>
 
 

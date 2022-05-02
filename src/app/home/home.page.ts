@@ -18,6 +18,7 @@ lon: any;
 
 clima: any = [];
 active: boolean;
+activeerror: boolean;
 
   constructor(private router: Router, private service: ServiceService) {}
 
@@ -40,16 +41,25 @@ active: boolean;
     this.lat= this.latitud.value;
     this.lon= this.longitud.value;
 
-    this.obtener();  
-    this.active= true
+    this.obtener(); 
+    
   }
 
 
   obtener(){
     this.service.getWeather(this.lat, this.lon).subscribe(data =>{
       this.clima=data;
+      this.active= true
       console.log(this.clima);
-    })
+      this.activeerror=false;
+    },
+     (error) => {                              
+      console.error('error caught in component')
+      this.activeerror= true;
+      this.active=false;
+    }
+    
+    )
 
   }
 
