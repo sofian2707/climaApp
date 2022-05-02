@@ -23,6 +23,9 @@
         <div *ngIf="latitud.invalid && (latitud.dirty || latitud.touched)">
         <div *ngIf="latitud.errors?.['required']">
           <ion-text color="danger"><sub>Ingrese Latitud</sub></ion-text>
+        </div>
+        <div *ngIf="latitud.errors?.['max']">
+          <ion-text color="danger"><sub>Latitud invalida</sub></ion-text>
         </div><br>
         </div>
       </ion-item>
@@ -36,22 +39,34 @@
       <div *ngIf="longitud.invalid && (longitud.dirty || longitud.touched)">
         <div *ngIf="longitud.errors?.['required']">
           <ion-text color="danger"><sub>Ingrese longitud</sub></ion-text>
+        </div>
+        <div *ngIf="longitud.errors?.['max']">
+          <ion-text color="danger"><sub>Longitud invalida</sub></ion-text>
         </div><br>
       </div>
       </ion-item><br>
-
-
-
       <ion-row>
         <ion-col>
           <ion-button type="submit" color="light" expand="block" [disabled]="!datos.valid">Buscar</ion-button>
         </ion-col>
       </ion-row>
     </form>
-
-
   </div>
 
+  <ng-template [ngIf]="active">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+        <ion-card-title>Card Title</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Keep close to Nature's heart... and break clear away, once in awhile,
+        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      </ion-card-content>
+    </ion-card>
+    
+</ng-template>
 
 
 </ion-content>
