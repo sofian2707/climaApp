@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+     Clima app
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fondo" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title >Obtener clima </ion-title>
+    </ion-toolbar>
+  </ion-header><br><br>
+
+  <div>
+    <form [formGroup]="datos" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">Ingresa latitud</ion-label>
+        <ion-input  formControlName="latitud" id="latitud" name="latitud" type="number" ></ion-input>
+
+<!--  Validaciones -->
+        <div *ngIf="latitud.invalid && (latitud.dirty || latitud.touched)">
+        <div *ngIf="latitud.errors?.['required']">
+          <ion-text color="danger"><sub>Ingrese Latitud</sub></ion-text>
+        </div><br>
+        </div>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="floating">Ingresa Longitud</ion-label>
+        <ion-input  formControlName="longitud" type="number" id="longitud" name="longitud"  ></ion-input>
+
+<!--  Validaciones -->
+      <div *ngIf="longitud.invalid && (longitud.dirty || longitud.touched)">
+        <div *ngIf="longitud.errors?.['required']">
+          <ion-text color="danger"><sub>Ingrese longitud</sub></ion-text>
+        </div><br>
+      </div>
+      </ion-item><br>
+
+
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="light" expand="block" [disabled]="!datos.valid">Buscar</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+
+
+  </div>
+
+
+
+</ion-content>
