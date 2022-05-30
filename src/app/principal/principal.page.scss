@@ -1,0 +1,29 @@
+.vertical-center{ 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    height: 100%; 
+
+}
+
+.boton{
+    
+    margin: auto;
+    display: block;
+    width: 70%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    
+}
+
+.fondo{
+    --background: url('https://p4.wallpaperbetter.com/wallpaper/540/779/767/iceland-road-marking-turn-wallpaper-preview.jpg') 0 0/100% 100% no-repeat;;
+    
+}
+
+.image{
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+
+
